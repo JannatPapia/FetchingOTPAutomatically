@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Verification: View {
+    @StateObject var otpModel: OTPViewModel = .init()
     var body: some View {
         VStack{
             OTPField()
