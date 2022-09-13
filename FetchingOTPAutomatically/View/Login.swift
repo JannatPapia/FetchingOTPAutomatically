@@ -65,6 +65,7 @@ struct Login: View {
         } label: {}
             .labelsHidden()
     }
+        .alert(otpModel.errorMsg, isPresented: $otpModel.showAlert) {}
     }
 }
 

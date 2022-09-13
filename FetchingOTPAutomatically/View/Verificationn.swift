@@ -16,7 +16,7 @@ struct Verificationn: View {
             OTPField()
             
             Button {
-                
+                Task{await otpModel.verifyOTP()}
             } label: {
                 Text("Verify")
                     .fontWeight(.semibold)
@@ -26,6 +26,11 @@ struct Verificationn: View {
                     .background{
                         RoundedRectangle(cornerRadius: 10, style: .continuous)
                             .fill(Color.blue)
+                            .opacity(otpModel.isLoading ? 0 : 1)
+                    }
+                    .overlay{
+                        ProgressView()
+                            .opacity(otpModel.isLoading ? 1 : 0)
                     }
             }
             .disabled(checkStates())
@@ -47,8 +52,9 @@ struct Verificationn: View {
         .frame(maxHeight: .infinity, alignment: .top)
         .navigationTitle("Verification")
         .onChange(of: otpModel.otpFields) {newValue in
-                   OTPCondition(value: newValue)
-               }
+            OTPCondition(value: newValue)
+        }
+        .alert(otpModel.errorMsg, isPresented: $otpModel.showAlert) {}
     }
     
     func checkStates()->Bool{
@@ -59,38 +65,42 @@ struct Verificationn: View {
     }
     
     //MARK: Conditions For Custom OTP Field & Limiting only one text
-        func OTPCondition(value: [String]){
-            
-            // Checking if OTP is Pressed
-            for index in 0..<6{
-                if value[index].count == 6{
-                    DispatchQueue.main.async {
-                        otpModel.otpText = value[index]
-                        otpModel.otpFields[index] = ""
-                        
-                        
+    func OTPCondition(value: [String]){
+        
+        // Checking if OTP is Pressed
+        for index in 0..<6{
+            if value[index].count == 6{
+                DispatchQueue.main.async {
+                    otpModel.otpText = value[index]
+                    otpModel.otpFields[index] = ""
+                    
+                    // Updating All TextFields with value
+                    for item in otpModel.otpText.enumerated(){
+                        otpModel.otpFields[item.offset] = String(item.element)
                     }
                 }
-            }
-            //Moving Next Field If Current Field Type
-            for index in 0..<5{
-                if value[index].count == 1 && activeStateForIndex(index: index) == activeField{
-                    activeField = activeStateForIndex(index: index + 1)
-                }
-            }
-            
-            //Moving Back if Current is Empty and Previous is not Empty
-            for index in 1...5{
-                if value[index].isEmpty && !value[index - 1].isEmpty{
-                    activeField = activeStateForIndex(index: index - 1)
-                }
-            }
-            for index in 0..<6{
-                if value[index].count > 1{
-                    otpModel.otpFields[index] = String(value[index].last!)
-                }
+                return
             }
         }
+        //Moving Next Field If Current Field Type
+        for index in 0..<5{
+            if value[index].count == 1 && activeStateForIndex(index: index) == activeField{
+                activeField = activeStateForIndex(index: index + 1)
+            }
+        }
+        
+        //Moving Back if Current is Empty and Previous is not Empty
+        for index in 1...5{
+            if value[index].isEmpty && !value[index - 1].isEmpty{
+                activeField = activeStateForIndex(index: index - 1)
+            }
+        }
+        for index in 0..<6{
+            if value[index].count > 1{
+                otpModel.otpFields[index] = String(value[index].last!)
+            }
+        }
+    }
     
     //MARK: Custom OTP TextField
     @ViewBuilder
@@ -112,16 +122,16 @@ struct Verificationn: View {
             }
         }
     }
-        func activeStateForIndex(index: Int)-> OTPField {
-            switch index{
-            case 0: return .field1
-            case 1: return .field2
-            case 2: return .field3
-            case 3: return .field4
-            case 4: return .field5
-            default: return .field6
-            }
+    func activeStateForIndex(index: Int)-> OTPField {
+        switch index{
+        case 0: return .field1
+        case 1: return .field2
+        case 2: return .field3
+        case 3: return .field4
+        case 4: return .field5
+        default: return .field6
         }
+    }
 }
 
 struct Verificationn_Previews: PreviewProvider {
