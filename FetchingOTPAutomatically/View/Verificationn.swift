@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Verificationn: View {
-    @StateObject var otpModel: OTPViewModel = .init()
+    @EnvironmentObject var otpModel: OTPViewModel
     //MARK: TextField FocusState
     @FocusState var activeField: OTPField?
     var body: some View {

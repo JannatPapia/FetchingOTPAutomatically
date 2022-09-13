@@ -26,16 +26,19 @@ class OTPViewModel: ObservableObject {
     
     @Published var isLoading: Bool = false
     
+    @Published var navigationTag: String?
+    
     //MARK: Sending OTP
     func sendOTP()async{
         if isLoading{return}
         do{
             isLoading = true
             let result = try await
-            PhoneAuthProvider.provider().verifyPhoneNumber("+880\(code)\(number)", uiDelegate: nil)
+            PhoneAuthProvider.provider().verifyPhoneNumber("+\(code)\(number)", uiDelegate: nil)
             DispatchQueue.main.async {
                 self.isLoading = false
                 self.verificationCode = result
+                self.navigationTag = "VERIFICATION"
             }
         }
         catch{

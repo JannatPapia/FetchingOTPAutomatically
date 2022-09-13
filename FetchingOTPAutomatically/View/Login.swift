@@ -13,7 +13,7 @@ struct Login: View {
         VStack{
             HStack(spacing: 10){
                 VStack(spacing: 8){
-                    TextField("1", text: $otpModel.code)
+                    TextField("+88", text: $otpModel.code)
                         .keyboardType(.numberPad)
                         .multilineTextAlignment(.center)
                     
@@ -24,16 +24,16 @@ struct Login: View {
                 .frame(width: 40)
                 
                 VStack(spacing: 8){
-                    TextField("1283748", text: $otpModel.number)
+                    TextField("01904993197", text: $otpModel.number)
                         .keyboardType(.numberPad)
-                        .multilineTextAlignment(.center)
+                       // .multilineTextAlignment(.center)
                     
                     Rectangle()
                         .fill(otpModel.number == "" ? Color.gray.opacity(0.35) : Color.blue)
                         .frame(height: 2)
                 }
             }
-            
+            .padding(.vertical)
             Button {
                 Task{await otpModel.sendOTP()}
             } label: {
@@ -58,6 +58,13 @@ struct Login: View {
         .navigationTitle("Login")
         .padding()
         .frame(maxHeight: .infinity, alignment: .top)
+        .background{
+            NavigationLink(tag: "VERIFICATION", selection: $otpModel.navigationTag) {
+            Verificationn()
+                .environmentObject(otpModel)
+        } label: {}
+            .labelsHidden()
+    }
     }
 }
 
