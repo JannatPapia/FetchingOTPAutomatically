@@ -14,6 +14,20 @@ struct Verificationn: View {
     var body: some View {
         VStack{
             OTPField()
+            
+            Button {
+                
+            } label: {
+                Text("Verify")
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+                    .padding(.vertical, 12)
+                    .frame(maxWidth: .infinity)
+                    .background{
+                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                            .fill(Color.purple)
+                    }
+            }
         }
         .padding()
         .frame(maxHeight: .infinity, alignment: .top)
