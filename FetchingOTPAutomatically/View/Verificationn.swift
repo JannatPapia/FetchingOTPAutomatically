@@ -31,6 +31,13 @@ struct Verificationn: View {
                     activeField = activeStateForIndex(index: index + 1)
                 }
             }
+            
+            //Moving Back if Current is Empty and Previous is not Empty
+            for index in 1...5{
+                if value[index].isEmpty && !value[index - 1].isEmpty{
+                    activeField = activeStateForIndex(index: index - 1)
+                }
+            }
             for index in 0..<6{
                 if value[index].count > 1{
                     otpModel.otpFields[index] = String(value[index].last!)
