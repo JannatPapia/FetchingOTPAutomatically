@@ -10,6 +10,7 @@ import Firebase
 
 @main
 struct FetchingOTPAutomaticallyApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -25,5 +26,9 @@ class AppDelegate: NSObject,UIApplicationDelegate{
         return true
     }
     
-    // Since OTP requires
+    // Since OTP requires remote Notification
+    func application(_ application: UIApplication, didRecieveRemoteNotification userInfo: [AnyHashable : Any]) async ->
+    UIBackgroundFetchResult {
+        return .noData
+    }
 }
