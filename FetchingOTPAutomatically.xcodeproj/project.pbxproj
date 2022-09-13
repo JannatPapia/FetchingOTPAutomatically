@@ -16,6 +16,7 @@
 		3720FE1928D0509F00D7E49A /* Verificationn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3720FE1828D0509F00D7E49A /* Verificationn.swift */; };
 		37D8DED128D0838F00FD0974 /* GoogleService-Info-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37D8DED028D0838F00FD0974 /* GoogleService-Info-3.plist */; };
 		37D8DED728D0978C00FD0974 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 37D8DED628D0978C00FD0974 /* FirebaseAuth */; };
+		37D8DED928D0A29F00FD0974 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D8DED828D0A29E00FD0974 /* Login.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		3720FE1828D0509F00D7E49A /* Verificationn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verificationn.swift; sourceTree = "<group>"; };
 		37D8DED028D0838F00FD0974 /* GoogleService-Info-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-3.plist"; sourceTree = "<group>"; };
 		37D8DED228D08B1500FD0974 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		37D8DED828D0A29E00FD0974 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			children = (
 				3720FE1328CFA1CF00D7E49A /* Verification.swift */,
 				3720FE1828D0509F00D7E49A /* Verificationn.swift */,
+				37D8DED828D0A29E00FD0974 /* Login.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				3720FE1928D0509F00D7E49A /* Verificationn.swift in Sources */,
 				3720FE1728CFA55700D7E49A /* OTPViewModel.swift in Sources */,
 				3720FE1428CFA1CF00D7E49A /* Verification.swift in Sources */,
+				37D8DED928D0A29F00FD0974 /* Login.swift in Sources */,
 				3720FE0728CFA11E00D7E49A /* ContentView.swift in Sources */,
 				3720FE0528CFA11E00D7E49A /* FetchingOTPAutomaticallyApp.swift in Sources */,
 			);
