@@ -21,11 +21,22 @@ class OTPViewModel: ObservableObject {
     @Published var showAlert: Bool = false
     @Published var errorMsg: String = ""
     
+    //MARK: OTP Credentials
+    @Published var verificationCode : String = ""
+    
+    @Published var isLoading: Bool = false
+    
     //MARK: Sending OTP
     func sendOTP()async{
+        if isLoading{return}
         do{
+            isLoading = true
             let result = try await
             PhoneAuthProvider.provider().verifyPhoneNumber("+880\(code)\(number)", uiDelegate: nil)
+            DispatchQueue.main.async {
+                self.isLoading = false
+                self.verificationCode = result
+            }
         }
         catch{
             handleError(error: error.localizedDescription)
@@ -34,6 +45,7 @@ class OTPViewModel: ObservableObject {
     
     func handleError(error: String) {
         DispatchQueue.main.async {
+            self.isLoading = false
             self.errorMsg = error
             self.showAlert.toggle()
         }
