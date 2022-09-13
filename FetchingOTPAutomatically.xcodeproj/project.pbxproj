@@ -13,6 +13,7 @@
 		3720FE0C28CFA12000D7E49A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3720FE0B28CFA12000D7E49A /* Preview Assets.xcassets */; };
 		3720FE1428CFA1CF00D7E49A /* Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3720FE1328CFA1CF00D7E49A /* Verification.swift */; };
 		3720FE1728CFA55700D7E49A /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3720FE1628CFA55700D7E49A /* OTPViewModel.swift */; };
+		3720FE1928D0509F00D7E49A /* Verificationn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3720FE1828D0509F00D7E49A /* Verificationn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		3720FE0B28CFA12000D7E49A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3720FE1328CFA1CF00D7E49A /* Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verification.swift; sourceTree = "<group>"; };
 		3720FE1628CFA55700D7E49A /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
+		3720FE1828D0509F00D7E49A /* Verificationn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verificationn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				3720FE1328CFA1CF00D7E49A /* Verification.swift */,
+				3720FE1828D0509F00D7E49A /* Verificationn.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3720FE1928D0509F00D7E49A /* Verificationn.swift in Sources */,
 				3720FE1728CFA55700D7E49A /* OTPViewModel.swift in Sources */,
 				3720FE1428CFA1CF00D7E49A /* Verification.swift in Sources */,
 				3720FE0728CFA11E00D7E49A /* ContentView.swift in Sources */,
