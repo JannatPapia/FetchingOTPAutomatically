@@ -20,7 +20,16 @@ struct Verification: View {
         .frame(maxWidth: .infinity, alignment: .top)
         .navigationTitle("Verification")
         .onChange(of: otpModel.otpFields) {newValue in
-            
+            OTPCondition(value: newValue)
+        }
+    }
+    //MARK: Condittions for custom OTP Field & Limiting Only one Text
+    
+    func OTPCondition(value: [String]){
+        for index in 0..<6{
+            if value[index].count > 1{
+                otpModel.otpFields[index] = String(value[index].last!)
+            }
         }
     }
     
