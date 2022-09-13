@@ -25,9 +25,23 @@ struct Verificationn: View {
                     .frame(maxWidth: .infinity)
                     .background{
                         RoundedRectangle(cornerRadius: 10, style: .continuous)
-                            .fill(Color.purple)
+                            .fill(Color.blue)
                     }
             }
+            .disabled(checkStates())
+            .opacity(checkStates() ? 0.4 : 1)
+            .padding(.vertical)
+            
+            HStack(spacing: 12){
+                Text("Didn't get otp?")
+                    .font(.caption)
+                    .foregroundColor(Color.gray)
+                
+                Button("Resend"){}
+                    .font(.callout)
+                
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding()
         .frame(maxHeight: .infinity, alignment: .top)
@@ -35,6 +49,13 @@ struct Verificationn: View {
         .onChange(of: otpModel.otpFields) {newValue in
                    OTPCondition(value: newValue)
                }
+    }
+    
+    func checkStates()->Bool{
+        for index in 0..<6{
+            if otpModel.otpFields[index].isEmpty{return true}
+        }
+        return false
     }
     
     //MARK: Conditions For Custom OTP Field & Limiting only one text
