@@ -60,6 +60,18 @@ struct Verificationn: View {
     
     //MARK: Conditions For Custom OTP Field & Limiting only one text
         func OTPCondition(value: [String]){
+            
+            // Checking if OTP is Pressed
+            for index in 0..<6{
+                if value[index].count == 6{
+                    DispatchQueue.main.async {
+                        otpModel.otpText = value[index]
+                        otpModel.otpFields[index] = ""
+                        
+                        
+                    }
+                }
+            }
             //Moving Next Field If Current Field Type
             for index in 0..<5{
                 if value[index].count == 1 && activeStateForIndex(index: index) == activeField{
