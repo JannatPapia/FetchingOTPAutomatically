@@ -14,6 +14,8 @@
 		3720FE1428CFA1CF00D7E49A /* Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3720FE1328CFA1CF00D7E49A /* Verification.swift */; };
 		3720FE1728CFA55700D7E49A /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3720FE1628CFA55700D7E49A /* OTPViewModel.swift */; };
 		3720FE1928D0509F00D7E49A /* Verificationn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3720FE1828D0509F00D7E49A /* Verificationn.swift */; };
+		37D8DED128D0838F00FD0974 /* GoogleService-Info-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37D8DED028D0838F00FD0974 /* GoogleService-Info-3.plist */; };
+		37D8DED728D0978C00FD0974 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 37D8DED628D0978C00FD0974 /* FirebaseAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		3720FE1328CFA1CF00D7E49A /* Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verification.swift; sourceTree = "<group>"; };
 		3720FE1628CFA55700D7E49A /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		3720FE1828D0509F00D7E49A /* Verificationn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verificationn.swift; sourceTree = "<group>"; };
+		37D8DED028D0838F00FD0974 /* GoogleService-Info-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-3.plist"; sourceTree = "<group>"; };
+		37D8DED228D08B1500FD0974 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37D8DED728D0978C00FD0974 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +46,7 @@
 		3720FDF828CFA11E00D7E49A = {
 			isa = PBXGroup;
 			children = (
+				37D8DED028D0838F00FD0974 /* GoogleService-Info-3.plist */,
 				3720FE0328CFA11E00D7E49A /* FetchingOTPAutomatically */,
 				3720FE0228CFA11E00D7E49A /* Products */,
 			);
@@ -57,6 +63,7 @@
 		3720FE0328CFA11E00D7E49A /* FetchingOTPAutomatically */ = {
 			isa = PBXGroup;
 			children = (
+				37D8DED228D08B1500FD0974 /* Info.plist */,
 				3720FE1528CFA53700D7E49A /* ViewModel */,
 				3720FE1228CFA1AC00D7E49A /* View */,
 				3720FE0428CFA11E00D7E49A /* FetchingOTPAutomaticallyApp.swift */,
@@ -108,6 +115,9 @@
 			dependencies = (
 			);
 			name = FetchingOTPAutomatically;
+			packageProductDependencies = (
+				37D8DED628D0978C00FD0974 /* FirebaseAuth */,
+			);
 			productName = FetchingOTPAutomatically;
 			productReference = 3720FE0128CFA11E00D7E49A /* FetchingOTPAutomatically.app */;
 			productType = "com.apple.product-type.application";
@@ -136,6 +146,9 @@
 				Base,
 			);
 			mainGroup = 3720FDF828CFA11E00D7E49A;
+			packageReferences = (
+				37D8DED528D0978C00FD0974 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 3720FE0228CFA11E00D7E49A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -151,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3720FE0C28CFA12000D7E49A /* Preview Assets.xcassets in Resources */,
+				37D8DED128D0838F00FD0974 /* GoogleService-Info-3.plist in Resources */,
 				3720FE0928CFA12000D7E49A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +312,7 @@
 				DEVELOPMENT_TEAM = 37P2V26KZ2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FetchingOTPAutomatically/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -327,6 +342,7 @@
 				DEVELOPMENT_TEAM = 37P2V26KZ2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FetchingOTPAutomatically/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -367,6 +383,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		37D8DED528D0978C00FD0974 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		37D8DED628D0978C00FD0974 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37D8DED528D0978C00FD0974 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3720FDF928CFA11E00D7E49A /* Project object */;
 }

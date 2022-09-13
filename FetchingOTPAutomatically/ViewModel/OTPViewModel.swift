@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 class OTPViewModel: ObservableObject {
     @Published var otpText: String = ""
