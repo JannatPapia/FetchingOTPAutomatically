@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct FetchingOTPAutomaticallyApp: App {
@@ -14,4 +15,15 @@ struct FetchingOTPAutomaticallyApp: App {
             ContentView()
         }
     }
+}
+
+//MARK: Setting up Firebase
+
+class AppDelegate: NSObject,UIApplicationDelegate{
+    func application(_ application: UIApplication, didFinishLunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil)-> Bool{
+        FirebaseApp.configure()
+        return true
+    }
+    
+    // Since OTP requires
 }
